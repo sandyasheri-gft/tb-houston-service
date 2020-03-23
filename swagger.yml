@@ -1235,9 +1235,6 @@ paths:
               billing:
                 type: string
                 description: billing
-              lastUpdated:
-                type: string
-                description: update
               resources:
                 type: array
                 description: resources
