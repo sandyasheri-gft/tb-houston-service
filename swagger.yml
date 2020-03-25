@@ -1238,11 +1238,9 @@ paths:
                 type: array
                 description: apiManagement
               ci:
-                type: array
-                description: ci
+                $ref: "#/definitions/ci"
               cd:
-                type: array
-                description: cd
+                $ref: "#/definitions/cd"
               sourceControl:
                 type: array
                 description: sourceControl
@@ -1389,11 +1387,9 @@ paths:
                 type: array
                 description: apiManagement
               ci:
-                type: array
-                description: ci
+                $ref: "#/definitions/ci"
               cd:
-                type: array
-                description: cd
+                $ref: "#/definitions/cd"
               sourceControl:
                 type: array
                 description: sourceControl
@@ -1433,3 +1429,41 @@ paths:
       responses:
         200:
           description: Successfully deleted an activator 
+
+definitions:
+  ci:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      description:
+        type: "string"
+  cd:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      description:
+        type: "string"
+  sourceControl:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      description:
+        type: "string"
+  businessUnit:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+      name:
+        type: "string"
+      description:
+        type: "string"
