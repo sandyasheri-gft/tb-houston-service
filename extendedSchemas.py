@@ -9,6 +9,13 @@ from marshmallow import Schema, fields, pre_load, post_load, pre_dump, post_dump
 #db = SQLAlchemy(app)
 #ma = Marshmallow(app)
 
+class HealthSchema(Schema):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    status = fields.Str()
+
+
 class ExtendedActivatorSchema(Schema):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -63,8 +70,8 @@ class ExtendedSolutionSchema(Schema):
     cd = fields.Str()
     sourceControl = fields.Str()
     environments = fields.List(fields.Str())
-    active = fields.Str()
-    favourite = fields.Str()
+    active = fields.Boolean()
+    favourite = fields.Boolean()
     teams = fields.Str()
     lastUpdated = fields.Str()
     applications = fields.Nested(ExtendedApplicationSchema(many=True))

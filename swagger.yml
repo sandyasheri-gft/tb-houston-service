@@ -33,7 +33,7 @@ paths:
       parameters:
         - name: login_details
           in: body
-          required: True
+          required: true
           schema:
             type: object
             properties:
@@ -61,7 +61,19 @@ paths:
                 description: is admin?
 
 
-  /applications:
+  /health:
+    get:
+      operationId: health.check
+      tags: 
+        - health
+      summary: health check
+      description: health check
+      responses:
+        200:
+          description: Successful
+
+
+  /applications/:
     get:
       operationId: application.read_all
       tags:
@@ -97,7 +109,7 @@ paths:
                   type: string
                   description: notes
 
-  /application:
+  /application/:
     post:
       operationId: application.create
       tags:
@@ -108,7 +120,7 @@ paths:
         - name: application
           in: body
           description: The application to create
-          required: True
+          required: true
           schema:
             type: object
             properties:
@@ -147,7 +159,7 @@ paths:
           in: path
           description: id of the application to get from the list
           type: integer
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read an application from the list
@@ -180,7 +192,7 @@ paths:
           in: path
           description: id of the application to update
           type: integer
-          required: True
+          required: true
         - name: application
           in: body
           schema:
@@ -212,7 +224,7 @@ paths:
         - name: id
           in: path
           type: integer
-          required: True
+          required: true
       responses:
         200:
           description: Successfully deleted an application 
@@ -230,7 +242,7 @@ paths:
           in: path
           description: activatorId
           type: integer
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read activatorId
@@ -243,7 +255,7 @@ paths:
                 type: integer
 
 
-  /keyValues/team:
+  /keyValues/team/:
     get:
       operationId: team.read_all
       tags:
@@ -274,7 +286,7 @@ paths:
         - name: team
           in: body
           description: Team to create
-          required: True
+          required: true
           schema:
             type: object
             properties:
@@ -300,7 +312,7 @@ paths:
           in: path
           description: key of the team to get from the list
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read a team from the list
@@ -323,7 +335,7 @@ paths:
           in: path
           description: key of the team to update
           type: string
-          required: True
+          required: true
         - name: team
           in: body
           schema:
@@ -347,13 +359,13 @@ paths:
         - name: key
           in: path
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully deleted a team
           
 
-  /keyValues/environment:
+  /keyValues/environment/:
     get:
       operationId: environment.read_all
       tags:
@@ -384,7 +396,7 @@ paths:
         - name: environment
           in: body
           description: Environment to create
-          required: True
+          required: true
           schema:
             type: object
             properties:
@@ -410,7 +422,7 @@ paths:
           in: path
           description: key of the environment to get from the list
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read an environment from the list
@@ -433,7 +445,7 @@ paths:
           in: path
           description: key of the environment to update
           type: string
-          required: True
+          required: true
         - name: environment 
           in: body
           schema:
@@ -457,13 +469,13 @@ paths:
         - name: key
           in: path
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully deleted an environment 
           
 
-  /keyValues/ci:
+  /keyValues/ci/:
     get:
       operationId: ci.read_all
       tags:
@@ -494,7 +506,7 @@ paths:
         - name: ci
           in: body
           description: CI to create
-          required: True
+          required: true
           schema:
             type: object
             properties:
@@ -520,7 +532,7 @@ paths:
           in: path
           description: key of the ci to get from the list
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read an ci from the list
@@ -543,7 +555,7 @@ paths:
           in: path
           description: key of the ci to update
           type: string
-          required: True
+          required: true
         - name: ci
           in: body
           schema:
@@ -567,13 +579,13 @@ paths:
         - name: key
           in: path
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully deleted an CI
           
 
-  /keyValues/cd:
+  /keyValues/cd/:
     get:
       operationId: cd.read_all
       tags:
@@ -604,7 +616,7 @@ paths:
         - name: cd
           in: body
           description: CD to create
-          required: True
+          required: true
           schema:
             type: object
             properties:
@@ -630,7 +642,7 @@ paths:
           in: path
           description: key of the cd to get from the list
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read an cd from the list
@@ -653,7 +665,7 @@ paths:
           in: path
           description: key of the cd to update
           type: string
-          required: True
+          required: true
         - name: cd
           in: body
           schema:
@@ -677,13 +689,13 @@ paths:
         - name: key
           in: path
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully deleted an CD
           
 
-  /keyValues/sourceControl:
+  /keyValues/sourceControl/:
     get:
       operationId: sourcecontrol.read_all
       tags:
@@ -714,7 +726,7 @@ paths:
         - name: sourceControl
           in: body
           description: sourcecontrol to create
-          required: True
+          required: true
           schema:
             type: object
             properties:
@@ -740,7 +752,7 @@ paths:
           in: path
           description: key of the sourcecontrol to get from the list
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read an sourcecontrol from the list
@@ -763,7 +775,7 @@ paths:
           in: path
           description: key of the sourcecontrol to update
           type: string
-          required: True
+          required: true
         - name: sourceControl
           in: body
           schema:
@@ -787,7 +799,7 @@ paths:
         - name: key
           in: path
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully deleted a sourcecontrol
@@ -824,7 +836,7 @@ paths:
         - name: businessUnit
           in: body
           description: BusinessUnit to create
-          required: True
+          required: true
           schema:
             type: object
             properties:
@@ -851,7 +863,7 @@ paths:
           in: path
           description: key of the businessUnit to get from the list
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read an businessUnit from the list
@@ -874,7 +886,7 @@ paths:
           in: path
           description: key of the businessUnit to update
           type: string
-          required: True
+          required: true
         - name: businessUnit
           in: body
           schema:
@@ -898,7 +910,7 @@ paths:
         - name: key
           in: path
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully deleted an BusinessUnit
@@ -958,6 +970,60 @@ paths:
                   type: string
                   description: lastUpdated
 
+  /solution/:
+    post:
+      operationId: solution.create
+      tags:
+        - solution
+      summary: Create a solution and add it to the solutions list
+      description: Create a new solution in the solutions list
+      parameters:
+        - name: solution
+          in: body
+          description: solution to create
+          required: true
+          schema:
+            type: object
+            properties:
+              name:
+                type: string
+                description: name
+              description:
+                type: string
+                description: description
+              businessUnit:
+                type: string
+                description: businessUnit
+              costCentre:
+                type: string
+                description: costCentre
+              ci:
+                type: string
+                description: ci
+              cd:
+                type: string
+                description: cd
+              sourceControl:
+                type: string
+                description: sourceControl
+              environments:
+                type: array
+                description: environment
+              active:
+                type: boolean
+                description: active
+              favourite:
+                type: boolean
+                description: favourite
+              teams:
+                type: integer
+                description: teams
+              lastUpdated:
+                type: string
+                description: lastUpdated
+      responses:
+        201:
+          description: Successfully created a solution
 
   /solution/{id}:
     get:
@@ -971,7 +1037,7 @@ paths:
           in: path
           description: the id of the solution
           type: integer
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read a solution
@@ -1019,65 +1085,22 @@ paths:
                   type: string
                   description: lastUpdated
 
-  /solution/:
-    post:
-      operationId: solution.create
+    delete:
+      operationId: solution.delete
       tags:
         - solution
-      summary: Create a solution and add it to the solutions list
-      description: Create a new solution in the solutions list
+      summary: Delete a solution from the list
+      description: Delete a solution
       parameters:
-        - name: solution
-          in: body
-          description: solution to create
-          required: True
-          schema:
-            type: object
-            properties:
-              id: 
-                type: integer
-                description: id
-              name:
-                type: string
-                description: name
-              description:
-                type: string
-                description: description
-              businessUnit:
-                type: string
-                description: businessUnit
-              costCentre:
-                type: string
-                description: costCentre
-              ci:
-                type: string
-                description: ci
-              cd:
-                type: string
-                description: cd
-              sourceControl:
-                type: string
-                description: sourceControl
-              environments:
-                type: array
-                description: environment
-              active:
-                type: boolean
-                description: active
-              favourite:
-                type: boolean
-                description: favourite
-              teams:
-                type: integer
-                description: teams
-              lastUpdated:
-                type: string
-                description: lastUpdated
+        - name: id
+          in: path
+          type: integer
+          required: true
       responses:
-        201:
-          description: Successfully created a solution
+        200:
+          description: Successfully deleted a solution
 
-
+          
   /activators/:
     get:
       operationId: activator.read_all
@@ -1160,7 +1183,7 @@ paths:
                   type: string
                   description: activator
 
-  /activator:
+  /activator/:
     post:
       operationId: activator.create
       tags:
@@ -1171,7 +1194,7 @@ paths:
         - name: activator
           in: body
           description: activator to create
-          required: True
+          required: true
           schema:
             type: object
             properties:
@@ -1254,7 +1277,7 @@ paths:
           in: path
           description: key of the activator to get from the list
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully read an activator from the list
@@ -1319,8 +1342,8 @@ paths:
         - name: id
           in: path
           description: key of the activator to update
-          type: string
-          required: True
+          type: integer
+          required: true
         - name: activator
           in: body
           schema:
@@ -1406,7 +1429,333 @@ paths:
         - name: id
           in: path
           type: string
-          required: True
+          required: true
       responses:
         200:
           description: Successfully deleted an activator 
+
+
+  /landingzoneprogressitems/:
+    get:
+      operationId: landingzoneprogressitem.read_all
+      tags:
+        - landingzoneprogressitem
+      summary: Read the entire list of landingzoneprogressitems
+      description: Read the list of landingzoneprogressitems
+      responses:
+        200:
+          description: Successfully ran landingzoneprogressitem list operation
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                  description: id
+                label:
+                  type: string
+                  description: label
+                completed:
+                  type: boolean
+                  description: completed
+
+  /landingzoneprogressitem/:
+    post:
+      operationId: landingzoneprogressitem.create
+      tags:
+        - landingzoneprogressitem
+      summary: Create a landingzoneprogressitem and add it to the landingzoneprogressitem list
+      description: Create a new new landingzoneprogressitem in the landingzoneprogressitem list
+      parameters:
+        - name: landingZoneProgressItem
+          in: body
+          description: landingzoneprogressitem to create
+          required: true
+          schema:
+            type: object
+            properties:
+              label:
+                type: string
+                description: label
+              completed:
+                type: boolean
+                description: completed
+      responses:
+        200:
+          description: Successfully created a landingzoneprogressitem
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: id
+              label:
+                type: string
+                description: label
+              completed:
+                type: boolean
+                description: completed
+
+  /landingzoneprogressitem/{id}:
+    get:
+      operationId: landingzoneprogressitem.read_one
+      tags:
+        - landingzoneprogressitem
+      summary: Read one landingzoneprogressitem from the list
+      description: Read one landingzoneprogressitem from the list
+      parameters:
+        - name: id
+          in: path
+          description: key of the landingzoneprogressitem to get from the list
+          type: integer
+          required: true
+      responses:
+        200:
+          description: Successfully read an landingzoneprogressitem from the list
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              label:
+                type: string
+              completed:
+                type: boolean
+
+    put:
+      operationId: landingzoneprogressitem.update
+      tags:
+        - landingzoneprogressitem
+      summary: Update an landingzoneprogressitem in the list
+      description: Update an landingzoneprogressitem in the list
+      parameters:
+        - name: id
+          in: path
+          description: key of the landingzoneprogressitem to update
+          type: integer
+          required: true
+        - name: landingZoneProgressItem
+          in: body
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: id
+              label:
+                type: string
+                description: label
+              completed:
+                type: boolean
+                description: completed
+      responses:
+        200:
+          description: Successfully updated an landingzoneprogressitem 
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              label:
+                type: string
+              completed:
+                type: boolean
+
+    delete:
+      operationId: landingzoneprogressitem.delete
+      tags:
+        - landingzoneprogressitem
+      summary: Delete a landingzoneprogressitem from the list
+      description: Delete a landingzoneprogressitem
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      responses:
+        200:
+          description: Successfully deleted a landingzoneprogressitem
+
+
+  /landingzoneactions/:
+    get:
+      operationId: landingzoneaction.read_all
+      tags:
+        - landingzoneaction
+      summary: Read the entire list of landingzoneactions
+      description: Read the list of landingzoneactions
+      responses:
+        200:
+          description: Successfully ran landingzoneaction list operation
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                  description: id
+                title:
+                  type: string
+                  description: title
+                categoryName:
+                  type: string
+                  description: categoryName
+                categoryClass:
+                  type: string
+                  description: categoryClass
+                completed:
+                  type: boolean
+                  description: completed
+
+  /landingzoneaction/:
+    post:
+      operationId: landingzoneaction.create
+      tags:
+        - landingzoneaction
+      summary: Create a landingzoneaction and add it to the landingzoneaction list
+      description: Create a new new landingzoneaction in the landingzoneaction list
+      parameters:
+        - name: landingZoneAction
+          in: body
+          description: landingzoneaction to create
+          required: true
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+                description: title
+              categoryName:
+                type: string
+                description: categoryName
+              categoryClass:
+                type: string
+                description: categoryClass
+              completionRate:
+                type: integer
+                description: completionRate
+      responses:
+        200:
+          description: Successfully created a landingzoneaction
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                  description: id
+                title:
+                  type: string
+                  description: title
+                categoryName:
+                  type: string
+                  description: categoryName
+                categoryClass:
+                  type: string
+                  description: categoryClass
+                completed:
+                  type: boolean
+                  description: completed
+
+  /landingzoneaction/{id}:
+    get:
+      operationId: landingzoneaction.read_one
+      tags:
+        - landingzoneaction
+      summary: Read one landingzoneaction from the list
+      description: Read one landingzoneaction from the list
+      parameters:
+        - name: id
+          in: path
+          description: key of the landingzoneaction to get from the list
+          type: integer
+          required: true
+      responses:
+        200:
+          description: Successfully read an landingzoneaction from the list
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              title:
+                type: string
+              categoryName:
+                type: string
+              categoryClass:
+                type: string
+              locked:
+                type: boolean
+
+    put:
+      operationId: landingzoneaction.update
+      tags:
+        - landingzoneaction
+      summary: Update an landingzoneaction in the list
+      description: Update an landingzoneaction in the list
+      parameters:
+        - name: id
+          in: path
+          description: key of the landingzoneaction to update
+          type: integer
+          required: true
+        - name: landingZoneAction
+          in: body
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: id
+              title:
+                type: string
+                description: title
+              categoryName:
+                type: string
+                description: categoryName
+              categoryClass:
+                type: string
+                description: string
+              completionRate:
+                type: integer
+                description: completionRate
+              locked:
+                type: boolean
+                description: locked
+      responses:
+        200:
+          description: Successfully updated a landingzoneaction
+          schema:
+            type: array
+            items:
+              properties:
+                id:
+                  type: integer
+                  description: id
+                title:
+                  type: string
+                  description: title
+                categoryName:
+                  type: string
+                  description: categoryName
+                categoryClass:
+                  type: string
+                  description: categoryClass
+                completed:
+                  type: boolean
+                  description: completed
+
+    delete:
+      operationId: landingzoneaction.delete
+      tags:
+        - landingzoneaction
+      summary: Delete a landingzoneaction from the list
+      description: Delete a landingzoneaction
+      parameters:
+        - name: id
+          in: path
+          type: string
+          required: true
+      responses:
+        200:
+          description: Successfully deleted a landingzoneaction
