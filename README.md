@@ -1,5 +1,7 @@
 # Build a container image using the Dockerfile
+
 docker build -t gcr.io/tranquility-base-images/tb-houston-service:alpha .
+
 docker push gcr.io/tranquility-base-images/tb-houston-service:alpha
 
 # list existing containers and remove them
